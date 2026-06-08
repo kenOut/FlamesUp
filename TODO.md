@@ -4,3 +4,6 @@
 - [ ] Update `kitchenImages` in `src/pages/Home.tsx` for Our Services and Our Process slideshows
 - [ ] Run build check after slideshow update
 - [ ] Mark slideshow update tasks complete
+- [x] Update product card hover behavior to show full product image in `src/pages/Products.tsx`
+- [ ] Verify product page hover behavior visually
+- [ ] Mark product hover tasks complete

@@ -429,11 +429,11 @@ function CategoryList({ categories, selectedCategory, onSelect, theme: t }: {
 function ProductCard({ product, added, onAdd, theme: t }: { product: Product; added: boolean; onAdd: () => void; theme: ThemeClasses }) {
   return (
     <div className={`group ${t.cardBg} rounded-2xl overflow-hidden border ${t.cardBorder} ${t.cardHoverBorder} transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/5 flex flex-col`}>
-      <div className="relative overflow-hidden h-48">
+      <div className="relative overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
         <img
           src={product.image_url}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:object-contain group-hover:scale-100 transition-all duration-500"
         />
         <div className={`absolute inset-0 bg-gradient-to-t ${t.cardOverlay} to-transparent`} />
       </div>
