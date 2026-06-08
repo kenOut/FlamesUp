@@ -16,10 +16,12 @@ export default function Home() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   const kitchenImages = [
-    '/1aa.avif',
-    '/2aa.avif',
-    '/3aaa.avif',
-    '/4aa.avif',
+    '/commercial_deep_fryer.png',
+    '/commercial_gas_range.jpg',
+    '/commercial_mixer.jpg',
+    '/commercial_reach_refrigerator.png',
+    '/commercial_walk_in_cooler.png',
+    '/pizza_oven.jpg',
   ];
 
   useEffect(() => {

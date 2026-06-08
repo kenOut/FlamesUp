@@ -1,0 +1,6 @@
+- [x] Update hero slide image paths in `src/components/home/HeroSection.tsx` to kitchen equipment assets
+- [x] Run build check to verify no regressions
+- [x] Mark tasks complete
+- [ ] Update `kitchenImages` in `src/pages/Home.tsx` for Our Services and Our Process slideshows
+- [ ] Run build check after slideshow update
+- [ ] Mark slideshow update tasks complete

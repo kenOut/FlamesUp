@@ -21,7 +21,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: '/home_slider1.jpg',
+    image: '/commercial_deep_fryer.png',
     badge: 'Premium Professional Equipment',
     title: 'Where Excellence',
     highlight: 'Meets Innovation',
@@ -34,7 +34,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: '/2aa.avif',
+    image: '/commercial_gas_range.jpg',
     badge: 'Commercial Kitchen Excellence',
     title: 'Built for',
     highlight: 'Performance',
@@ -47,7 +47,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: '/1aa.avif',
+    image: '/commercial_mixer.jpg',
     badge: 'Leading Kitchen Equipment Supplier',
     title: 'Professional',
     highlight: 'Kitchen Equipment',
@@ -60,7 +60,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    image: '/3aaa.avif',
+    image: '/commercial_reach_refrigerator.png',
     badge: 'Expert Chef-Grade Solutions',
     title: 'Designed for',
     highlight: 'Culinary Masters',
@@ -73,7 +73,7 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    image: '/chef-working-together-professional-kitchen.jpg',
+    image: '/commercial_walk_in_cooler.png',
     badge: 'Full-Service Kitchen Solutions',
     title: 'Teamwork &',
     highlight: 'Precision',
@@ -86,7 +86,7 @@ const slides: Slide[] = [
   },
   {
     id: 6,
-    image: '/4aa.avif',
+    image: '/pizza_oven.jpg',
     badge: 'Premium Stainless Steel Equipment',
     title: 'Luxury Kitchens',
     highlight: 'Elevated',
