@@ -21,7 +21,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: '/commercial_deep_fryer.png',
+    image: ' /chat1.png',
     badge: 'Premium Professional Equipment',
     title: 'Where Excellence',
     highlight: 'Meets Innovation',
@@ -34,7 +34,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: '/commercial_gas_range.jpg',
+    image: '/chat2.png',
     badge: 'Commercial Kitchen Excellence',
     title: 'Built for',
     highlight: 'Performance',
@@ -47,7 +47,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: '/commercial_mixer.jpg',
+    image: '/commercial_kitchen_chefs.jpg',
     badge: 'Leading Kitchen Equipment Supplier',
     title: 'Professional',
     highlight: 'Kitchen Equipment',
