@@ -34,7 +34,7 @@ export default function BackgroundSlideshow({
           }}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/55 to-gray-900/80" />
     </div>
   );
 }

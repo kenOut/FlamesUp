@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, User, LogOut, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import useDayNight from '../../hooks/useDayNight';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   const { user, profile, signOut } = useAuth();
+  const isDay = useDayNight();
+  const navBg = isDay ? 'bg-gray-900/80 backdrop-blur-md' : 'bg-black';
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -23,7 +26,7 @@ export default function Header() {
     .split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
 
   return (
-    <header className="bg-black border-b border-gray-800 sticky top-0 z-50 shadow-lg">
+    <header className={`${navBg} border-b border-gray-800 sticky top-0 z-50 shadow-lg transition-colors duration-500`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center group">
@@ -111,7 +114,7 @@ export default function Header() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-black border-t border-gray-800">
+        <div className={`md:hidden ${navBg} border-t border-gray-800 transition-colors duration-500`}>
           <nav className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link

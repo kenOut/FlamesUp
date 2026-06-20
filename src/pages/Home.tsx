@@ -16,9 +16,11 @@ export default function Home() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   const kitchenImages = [
+    '/commercial_kitchen_chefs.jpg',
     '/commercial_deep_fryer.png',
     '/commercial_gas_range.jpg',
     '/commercial_mixer.jpg',
+    '/commercial_fridge_lineup_dark.jpg',
     '/commercial_reach_refrigerator.png',
     '/commercial_walk_in_cooler.png',
     '/pizza_oven.jpg',
