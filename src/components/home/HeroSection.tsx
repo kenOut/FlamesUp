@@ -21,7 +21,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: ' /chat1.png',
+    image: '/chat1.png',
     badge: 'Premium Professional Equipment',
     title: 'Where Excellence',
     highlight: 'Meets Innovation',
