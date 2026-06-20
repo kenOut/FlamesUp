@@ -75,7 +75,7 @@ export default function Auth() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-orange-900/40" />
         <div className="relative z-10 flex flex-col justify-between p-12 w-full">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/flame-logo-new.png" alt="Flames Up Solutions" className="h-12 object-contain" />
+            <img src="/flameup_transparent.png" alt="Flames Up Solutions" className="h-12 object-contain" />
           </Link>
           <div>
             <h2 className="text-4xl font-bold text-white leading-tight mb-4">
@@ -110,7 +110,7 @@ export default function Auth() {
         {/* Mobile logo */}
         <div className="lg:hidden mb-8">
           <Link to="/">
-            <img src="/flame-logo-new.png" alt="Flames Up Solutions" className="h-14 object-contain mx-auto" />
+            <img src="/flameup_transparent.png" alt="Flames Up Solutions" className="h-14 object-contain mx-auto" />
           </Link>
         </div>
 

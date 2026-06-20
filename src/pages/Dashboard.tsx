@@ -194,7 +194,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-3">
               <Link to="/">
-                <img src="/flame-logo-new.png" alt="Flames Up Solutions" className="h-10 object-contain" />
+                <img src="/flameup_transparent.png" alt="Flames Up Solutions" className="h-10 object-contain" />
               </Link>
               <div className={`w-px h-6 ${isDay ? 'bg-gray-200' : 'bg-gray-700'}`} />
               <span className={`font-semibold text-sm ${textPrimary}`}>My Dashboard</span>

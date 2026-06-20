@@ -31,7 +31,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center group">
             <img
-              src="/mmmm.jpg"
+              src="/flameup_transparent.png"
               alt="Flames Up Solutions"
               className="h-16 object-contain group-hover:scale-105 transition-transform duration-300"
             />

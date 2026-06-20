@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-4">
               <img
-                src="/mmmm.jpg"
+                src="/flameup_transparent.png"
                 alt="Flames Up Solutions"
                 className="h-12 object-contain"
               />
