@@ -34,7 +34,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: '/chat2.png',
+    image: '/chat5.png',
     badge: 'Commercial Kitchen Excellence',
     title: 'Built for',
     highlight: 'Performance',
@@ -60,7 +60,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    image: '/commercial_reach_refrigerator.png',
+    image: '/chat4.png',
     badge: 'Expert Chef-Grade Solutions',
     title: 'Designed for',
     highlight: 'Culinary Masters',
@@ -73,7 +73,7 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    image: '/commercial_walk_in_cooler.png',
+    image: '/home_slider1.jpg',
     badge: 'Full-Service Kitchen Solutions',
     title: 'Teamwork &',
     highlight: 'Precision',
@@ -152,8 +152,8 @@ export default function HeroSection() {
                 willChange: 'transform',
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-gray-900/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 via-gray-900/50 to-gray-900/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" />
           </div>
         );
       })}
