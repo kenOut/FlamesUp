@@ -86,7 +86,7 @@ const slides: Slide[] = [
   },
   {
     id: 6,
-    image: '/pizza_oven.jpg',
+    image: '/chat7.png',
     badge: 'Premium Stainless Steel Equipment',
     title: 'Luxury Kitchens',
     highlight: 'Elevated',
