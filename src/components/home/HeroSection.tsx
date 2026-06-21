@@ -101,34 +101,53 @@ const slides: Slide[] = [
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [failedSlides, setFailedSlides] = useState<Set<number>>(new Set());
   const loadedRef = useRef<Set<number>>(new Set());
 
-  // Preload all slide images and track which have fully loaded
+  // Preload all slide images; broken ones are marked failed and skipped instead of stalling the rotation
   useEffect(() => {
     slides.forEach((slide, index) => {
       const img = new window.Image();
       img.onload = () => loadedRef.current.add(index);
+      img.onerror = () => setFailedSlides((prev) => new Set(prev).add(index));
       img.src = slide.image;
     });
   }, []);
 
+  const findNextValid = (from: number, direction: 1 | -1) => {
+    for (let step = 1; step <= slides.length; step++) {
+      const candidate = (from + direction * step + slides.length) % slides.length;
+      if (failedSlides.has(candidate)) continue;
+      if (direction === 1 && !loadedRef.current.has(candidate)) continue;
+      return candidate;
+    }
+    return from;
+  };
+
+  // Jump off a slide immediately if it turns out to be broken
+  useEffect(() => {
+    if (failedSlides.has(currentSlide)) {
+      setCurrentSlide((prev) => findNextValid(prev, 1));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [failedSlides, currentSlide]);
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => {
-        const next = (prev + 1) % slides.length;
-        return loadedRef.current.has(next) ? next : prev;
-      });
-    }, 6000);
+      setCurrentSlide((prev) => findNextValid(prev, 1));
+    }, 8000);
     return () => clearInterval(timer);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [failedSlides]);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const nextSlide = () => setCurrentSlide((prev) => findNextValid(prev, 1));
+  const prevSlide = () => setCurrentSlide((prev) => findNextValid(prev, -1));
 
   return (
     <section className="relative bg-gray-900 min-h-[700px] flex items-center overflow-hidden">
-      {/* Background images */}
+      {/* Background images — slides that failed to load are skipped, not rendered */}
       {slides.map((slide, index) => {
+        if (failedSlides.has(index)) return null;
         const isActive = index === currentSlide;
         return (
           <div
@@ -136,7 +155,7 @@ export default function HeroSection() {
             className="absolute inset-0"
             style={{
               opacity: isActive ? 1 : 0,
-              transition: 'opacity 1.5s ease-in-out',
+              transition: 'opacity 2.5s ease-in-out',
               willChange: 'opacity',
             }}
           >
@@ -199,18 +218,21 @@ export default function HeroSection() {
 
           {/* Dot indicators */}
           <div className="flex items-center space-x-3">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  index === currentSlide
-                    ? 'w-12 bg-orange-500'
-                    : 'w-4 bg-white/30 hover:bg-white/60'
-                }`}
-              />
-            ))}
+            {slides.map((_, index) => {
+              if (failedSlides.has(index)) return null;
+              return (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                    index === currentSlide
+                      ? 'w-12 bg-orange-500'
+                      : 'w-4 bg-white/30 hover:bg-white/60'
+                  }`}
+                />
+              );
+            })}
           </div>
         </div>
       </Container>
