@@ -47,7 +47,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: '/commercial_kitchen_chefs.jpg',
+    image: '/chat8.png',
     badge: 'Leading Kitchen Equipment Supplier',
     title: 'Professional',
     highlight: 'Kitchen Equipment',
@@ -208,9 +208,9 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white/10 border-white text-white hover:bg-white hover:text-gray-900"
+                className="group bg-white/10 border-white text-white hover:bg-orange-600 hover:border-orange-600 hover:text-white"
               >
-                <Phone className="mr-2 h-5 w-5" />
+                <Phone className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 {slides[currentSlide].cta2Text}
               </Button>
             </Link>
