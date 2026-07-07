@@ -426,7 +426,17 @@ function CategoryList({ categories, selectedCategory, onSelect, theme: t }: {
   );
 }
 
+function sanitizeProductText(text: string) {
+  const toRemove = 'Commercial grade construction';
+  // Remove substring and collapse extra spaces that may result.
+  // Note: avoid String.prototype.replaceAll for older TS target libs.
+  return text.split(toRemove).join('').replace(/\s{2,}/g, ' ').trim();
+}
+
 function ProductCard({ product, added, onAdd, theme: t }: { product: Product; added: boolean; onAdd: () => void; theme: ThemeClasses }) {
+  const sanitizedDescription = product.description ? sanitizeProductText(product.description) : '';
+  const sanitizedFeatures = (product.features ?? []).map(f => sanitizeProductText(f)).filter(Boolean);
+
   return (
     <div className={`group ${t.cardBg} rounded-2xl overflow-hidden border ${t.cardBorder} ${t.cardHoverBorder} transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/5 flex flex-col`}>
       <div className="relative overflow-hidden h-48 bg-gray-100 dark:bg-gray-800">
@@ -439,12 +449,12 @@ function ProductCard({ product, added, onAdd, theme: t }: { product: Product; ad
       </div>
       <div className="p-4 flex flex-col flex-1">
         <h3 className={`font-semibold text-sm leading-tight mb-1.5 transition-colors duration-700 ${t.cardTitle}`}>{product.name}</h3>
-        {product.description && (
-          <p className={`text-xs line-clamp-2 mb-3 flex-1 transition-colors duration-700 ${t.cardDesc}`}>{product.description}</p>
+        {sanitizedDescription && (
+          <p className={`text-xs line-clamp-2 mb-3 flex-1 transition-colors duration-700 ${t.cardDesc}`}>{sanitizedDescription}</p>
         )}
-        {product.features && product.features.length > 0 && (
+        {sanitizedFeatures.length > 0 && (
           <ul className="space-y-1 mb-4">
-            {product.features.slice(0, 2).map((f, i) => (
+            {sanitizedFeatures.slice(0, 2).map((f, i) => (
               <li key={i} className={`flex items-center gap-1.5 text-xs transition-colors duration-700 ${t.cardFeature}`}>
                 <span className="w-1 h-1 rounded-full bg-orange-500 flex-shrink-0" />
                 {f}
